@@ -55,7 +55,7 @@ function updateWeather()
 function updateWeatherIcon( weather, target )
 {
 	new Ajax.Request( 'img/' + weather[ 0 ].icon + '.svg',
-					  {
+					  {     method: "get",
 	 				  	onSuccess: function( response )
 						{
 							$( target ).update( response.responseText );
