@@ -11,7 +11,7 @@ document.observe( 'dom:loaded', function()
 	
 	updateClock();
 	updateWeather();
-	updateSubsonic();
+	//updateSubsonic();
 } );
 
 function updateClock()
@@ -40,15 +40,16 @@ function fmtTimePart( part )
 
 function updateWeather()
 {
-	new Ajax.Request( 'backend/weather.php',
+	new Ajax.Request( '/weather',
 					  {
+						  method: "get",
 	 				  	onSuccess: function( response )
 						{
 							var json = response.responseJSON;
 							var tempUnit = json.tempUnit;
 							
 							parseWeather( json.current, tempUnit );
-							parseForecast( json.forecast, json.forecastItems );
+				 			parseForecast( json.forecast, json.forecastItems );
 						},
 						onComplete: updateWeather.delay( 60 * 30 )
 					  } );
