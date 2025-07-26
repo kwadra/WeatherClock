@@ -6,7 +6,7 @@ from flask import Flask, jsonify
 # get config values from environment variables
 # OWM_CITY_ID, OWM_API_KEY, OWM_UNITS, TEMP_UNIT, FORECAST_ITEMS
 # are expected to be set in the environment
-# or in a .env file loaded by dotenv
+# or in a env.sample file loaded by dotenv
 from dotenv import load_dotenv
 load_dotenv()
 
