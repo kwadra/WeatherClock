@@ -1,7 +1,7 @@
 import requests
 import json
 import os
-from flask import Flask, jsonify
+from flask import Flask, jsonify, send_from_directory
 
 # get config values from environment variables
 # HOME_LATITUDE, HOME_LONGITUDE, OWM_API_KEY, OWM_UNITS, TEMP_UNIT, FORECAST_ITEMS
@@ -38,6 +38,12 @@ def weather():
         'forecastItems': FORECAST_ITEMS
     }
     return jsonify(data)
+
+@app.route('/', defaults={'path': 'index.html'})
+@app.route('/<path:path>')
+def root(path):
+    """Serve static files from the 'static' directory."""
+    return send_from_directory('static', path)
 
 if __name__ == '__main__':
     app.run()
