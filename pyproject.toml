@@ -1,8 +1,8 @@
 # uv project file
 [project]
 name = "weatherclock"
-version = "0.1.0"
-description = "Add your description here"
+version = "1.1.0"
+description = "Weather Clock is a Flask web application that displays the current weather and time."
 requires-python = "~=3.12.0"
 dependencies = [
     "flask",
